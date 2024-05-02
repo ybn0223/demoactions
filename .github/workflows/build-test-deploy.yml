@@ -1,8 +1,4 @@
 name: Deploy Next.js Site to S3
-permissions:
-      contents: write
-      pages: write     
-      id-token: write 
 'on':
   push:
     branches:
@@ -10,6 +6,13 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write     
+      id-token: write 
+    env:
+      name: production
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
