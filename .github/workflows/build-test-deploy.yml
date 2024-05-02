@@ -1,10 +1,15 @@
+on:
+  push:
+    branches:
+      - main
+jobs:
 deploy:
   needs: test
   permissions:
     contents: write
     pages: write
     id-token: write
-  environment:
+  env:
     name: production
     url: '${{ steps.deployment.outputs.page_url }}'
   runs-on: ubuntu-latest
