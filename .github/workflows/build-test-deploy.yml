@@ -1,14 +1,14 @@
-on:
+'on':
   push:
     branches:
       - main
 jobs:
-deploy:
-  needs: test
-  permissions:
-    contents: write
-    pages: write
-    id-token: write
+  deploy:
+    needs: test
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
   env:
     name: production
     url: '${{ steps.deployment.outputs.page_url }}'
