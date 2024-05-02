@@ -35,3 +35,10 @@ jobs:
       - name: deploy
         id: deployment
         uses: actions/deploy-pages@v1
+      # Construct GitHub Pages URL
+      - name: Set GitHub Pages URL
+        run: echo "URL=https://<your_github_username>.github.io/<your_repository_name>/" >> $GITHUB_ENV
+
+      # Print the URL for debugging
+      - name: Print GitHub Pages URL
+        run: echo $URL
